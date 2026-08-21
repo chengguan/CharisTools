@@ -1,13 +1,13 @@
 # CharisPDF Privacy Statement
 
 Effective: 18 August 2026  
-Applies to the CharisPDF app on iPhone, iPad, and Mac.
+Applies to the CharisPDF app on iPhone and iPad.
 
 ## Who can see your documents
 
 **The developer of CharisPDF has no access to your documents or other personal data.** We do not operate a CharisPDF account, cloud, or document server. We cannot open, recover, search, or read the files you edit.
 
-You are in control of where files live: on this device, in a location you pick in Files or Finder, or in **your** iCloud Drive / other cloud if **you** put them there. Those services are run by Apple or that provider, not by us.
+You are in control of where files live: on this device, in a location you pick in Files, or in **your** iCloud Drive / other cloud if **you** put them there. Those services are run by Apple or that provider, not by us.
 
 ## What the app processes
 
