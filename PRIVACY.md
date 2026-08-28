@@ -22,18 +22,14 @@ The only preference we store on device is whether you accepted this statement an
 - No sale or sharing of your data — we never receive it
 - No access to your files unless you choose a file in the system picker
 
-## Optional AI agent (later)
-
-If you later connect **your** AI agent (MCP or App Intents), that is your choice. Bytes you send go to **that** agent under **its** terms. The CharisPDF developer still does not receive your documents.
-
 ## Children
 
 The app is a general productivity tool. We do not collect data from anyone, including children.
 
 ## Changes
 
-If this statement changes, the app will ask you to accept the new version before you continue. The version you accepted is stored only on this device.
+If this statement changes in a way that affects what we collect or share, the app will ask you to accept the new version before you continue. Platform corrections (for example which Apple devices the app runs on) do not re-prompt. The version you accepted is stored only on this device.
 
 ## Contact
 
-Questions about this statement: [charistools.dev@gmail.com](mailto:charistools.dev@gmail.com), or open an issue on this repository. Do not send documents to the developer; we do not need them and should not receive them.
+Questions about this statement, or a bug/feature report: email **[charistools.dev@gmail.com](mailto:charistools.dev@gmail.com)** or [open an issue](../../issues). Do not send documents to the developer; we do not need them and should not receive them.
