@@ -13,7 +13,7 @@ You are in control of where files live: on this device, in a location you pick i
 
 CharisPDF opens and edits PDF files **on your device**. Processing is local.
 
-The only preference we store on device is whether you accepted this statement and the disclaimer, and which version you accepted. That value is a number. It is not your name, email, or any document.
+On this device the app stores: which version of this statement you accepted; your last text and shape styles; and up to 10 custom text snippets you saved in Settings. Those values stay on this device. They are not your PDF files. We do not receive them.
 
 ## What we do not do
 
