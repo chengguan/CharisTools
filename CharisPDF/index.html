@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CharisPDF — a PDF editor that leaves your PDF alone</title>
+<meta name="description" content="Free PDF editor for iPhone and iPad. No account, no watermark, no subscription. Sign, mark up, and organize PDFs without your original page content ever being rewritten — nothing leaves your device.">
+<link rel="canonical" href="https://chengguan.github.io/CharisTools/CharisPDF/">
+<link rel="icon" type="image/png" sizes="256x256" href="assets/icon-256.png">
+<link rel="apple-touch-icon" href="assets/icon-256.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="CharisPDF — a PDF editor that leaves your PDF alone">
+<meta property="og:description" content="Free. No account. No watermark. Sign, mark up, and organize PDFs on iPhone and iPad — nothing you didn't add is ever rewritten.">
+<meta property="og:url" content="https://chengguan.github.io/CharisTools/CharisPDF/">
+<meta property="og:image" content="https://chengguan.github.io/CharisTools/CharisPDF/assets/icon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CharisPDF — a PDF editor that leaves your PDF alone">
+<meta name="twitter:description" content="Free. No account. No watermark. Sign, mark up, and organize PDFs on iPhone and iPad.">
+<meta name="twitter:image" content="https://chengguan.github.io/CharisTools/CharisPDF/assets/icon-512.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CharisPDF",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "iOS",
+  "url": "https://chengguan.github.io/CharisTools/CharisPDF/",
+  "image": "https://chengguan.github.io/CharisTools/CharisPDF/assets/icon-512.png",
+  "description": "Free PDF editor for iPhone and iPad. No account, no watermark. Sign, mark up, and organize PDFs without original page content ever being rewritten.",
+  "downloadUrl": "https://apps.apple.com/app/id6803359246",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f3f4f1;
+  --card:#ffffff;
+  --ink:#1c2333;
+  --muted:#5b6270;
+  --line:#dad9d2;
+  --accent:#2f5c8a;
+  --accent-strong:#1f4368;
+  --accent-soft:#dde6ef;
+  --grace:#4f6b4c;
+  --grace-soft:#e3ebe0;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#14161a;
+    --card:#1b1d21;
+    --ink:#e7e5dd;
+    --muted:#a3a49b;
+    --line:#2c2e2a;
+    --accent:#8db3de;
+    --accent-strong:#b4cde8;
+    --accent-soft:#233246;
+    --grace:#93b08b;
+    --grace-soft:#20291f;
+  }
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Public Sans', system-ui, -apple-system, sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{ color:var(--accent-strong); }
+.wrap{ max-width:1040px; margin:0 auto; padding:0 24px; }
+.narrow{ max-width:680px; }
+
+/* ---------- top nav ---------- */
+nav.top{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:22px 0;
+}
+.brand{ display:flex; align-items:center; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:14px; letter-spacing:0.02em; color:var(--muted); text-decoration:none; }
+.brand img{ width:22px; height:22px; border-radius:5px; display:block; }
+.top-links{ display:flex; gap:22px; font-size:14px; }
+.top-links a{ text-decoration:none; color:var(--muted); }
+.top-links a:hover{ color:var(--ink); }
+
+/* ---------- hero ---------- */
+.hero{ padding:64px 0 40px; }
+.hero-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center; }
+@media (max-width:820px){ .hero-grid{ grid-template-columns:1fr; gap:40px; } }
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 18px;
+}
+h1{
+  font-family:'Source Serif 4', Georgia, serif; font-weight:700;
+  font-size:clamp(34px,5vw,52px); line-height:1.08; letter-spacing:-0.01em;
+  margin:0 0 22px; text-wrap:balance;
+}
+.hero p.lede{ font-size:18px; color:var(--muted); max-width:52ch; margin:0 0 30px; }
+
+.signature{ width:260px; max-width:70%; height:auto; margin:0 0 30px; display:block; }
+.sig-path{
+  stroke:var(--accent);
+  stroke-width:3;
+  fill:none;
+  stroke-linecap:round;
+  stroke-dasharray:520;
+  stroke-dashoffset:520;
+  animation:draw 1.8s 0.3s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce){
+  .sig-path{ animation:none; stroke-dashoffset:0; }
+}
+@keyframes draw{ to{ stroke-dashoffset:0; } }
+
+.cta-row{ display:flex; flex-wrap:wrap; gap:18px; align-items:center; }
+.btn-primary{
+  display:inline-flex; align-items:center;
+  font-size:15px; font-weight:600; text-decoration:none;
+  color:var(--paper); background:var(--accent-strong);
+  border-radius:10px; padding:13px 22px;
+  box-shadow:0 10px 24px -12px rgba(31,67,104,0.55);
+}
+.btn-primary:hover{ background:var(--accent); }
+.cta-secondary{ font-size:14.5px; text-decoration:none; color:var(--accent-strong); font-weight:600; }
+.cta-secondary:hover{ text-decoration:underline; }
+
+.hero-art{ display:flex; align-items:center; justify-content:center; }
+.icon-frame{
+  width:220px; height:220px; border-radius:46px; overflow:hidden;
+  box-shadow:0 18px 40px -18px rgba(28,35,51,0.35), 0 2px 8px rgba(28,35,51,0.12);
+  border:1px solid var(--line);
+}
+.icon-frame img{ width:100%; height:100%; display:block; }
+
+/* ---------- sections ---------- */
+section{ padding:56px 0; border-top:1px solid var(--line); }
+.section-head{ max-width:56ch; margin:0 0 36px; }
+.section-tag{
+  font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.07em;
+  text-transform:uppercase; color:var(--grace); margin:0 0 10px;
+}
+h2{
+  font-family:'Source Serif 4', Georgia, serif; font-weight:600;
+  font-size:clamp(24px,3vw,30px); margin:0 0 12px; text-wrap:balance;
+}
+.section-head p{ color:var(--muted); font-size:16px; margin:0; }
+
+/* feature strip */
+.features{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+@media (max-width:820px){ .features{ grid-template-columns:1fr; } }
+.feature{
+  background:var(--card); border:1px solid var(--line); border-radius:12px;
+  padding:26px 24px;
+}
+.feature h3{
+  font-family:'Source Serif 4', serif; font-weight:600; font-size:18px; margin:0 0 10px;
+}
+.feature p{ font-size:14.5px; color:var(--muted); margin:0; }
+
+/* promise list */
+.promise-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px 32px; }
+@media (max-width:600px){ .promise-grid{ grid-template-columns:1fr; } }
+.promise-grid div{
+  display:flex; gap:10px; align-items:flex-start; font-size:15px; padding:9px 0;
+  border-bottom:1px solid var(--line);
+}
+.check{ color:var(--grace); flex:none; font-weight:700; margin-top:1px; }
+
+/* comparison */
+.table-scroll{ overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:var(--card); }
+table{ border-collapse:collapse; width:100%; min-width:480px; font-size:14.5px; }
+th{
+  text-align:left; font-family:'IBM Plex Mono', monospace; font-size:11.5px;
+  text-transform:uppercase; letter-spacing:0.05em; color:var(--muted);
+  padding:14px 18px; border-bottom:1px solid var(--line);
+}
+td{ padding:14px 18px; border-bottom:1px solid var(--line); vertical-align:top; }
+tr:last-child td{ border-bottom:none; }
+td.us{ color:var(--grace); font-weight:600; }
+
+/* closing */
+.closing{ text-align:left; }
+.closing .meaning{
+  border-left:3px solid var(--grace); background:var(--grace-soft);
+  border-radius:0 10px 10px 0; padding:18px 22px; font-size:15px; max-width:56ch; margin-top:8px;
+}
+
+footer{
+  border-top:1px solid var(--line); padding:36px 0 56px;
+  display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:center;
+}
+.foot-links{ display:flex; gap:20px; flex-wrap:wrap; font-size:13.5px; }
+.foot-links a{ color:var(--muted); text-decoration:none; }
+.foot-links a:hover{ color:var(--ink); }
+.foot-note{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="top">
+    <a class="brand" href="../">
+      <img src="assets/icon-256.png" alt="">
+      CharisTools
+    </a>
+    <div class="top-links">
+      <a href="https://main.d41zhi8q55vh9.amplifyapp.com/requests">Feedback</a>
+      <a href="../PRIVACY.html">Privacy</a>
+    </div>
+  </nav>
+</div>
+
+<div class="wrap hero">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Charis — Greek for grace</p>
+      <h1>A PDF editor that leaves your PDF alone.</h1>
+      <svg class="signature" viewBox="0 0 260 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path class="sig-path" d="M8,50 C22,20 34,20 40,42 C45,58 52,44 58,32 C64,20 70,44 78,44 C88,44 92,26 102,26 C114,26 116,54 128,54 C144,54 146,16 160,16 C176,16 176,50 192,50 C204,50 206,30 216,30 C224,30 228,42 236,42 C244,42 246,32 252,26"/>
+      </svg>
+      <p class="lede">Free. No account. No watermark. Sign, mark up, and organize PDFs entirely on your iPhone or iPad — nothing you didn't add is ever rewritten, and nothing leaves your device.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="https://apps.apple.com/app/id6803359246">Get CharisPDF — free on the App Store</a>
+        <a class="cta-secondary" href="https://main.d41zhi8q55vh9.amplifyapp.com/requests">Have feedback already? Share it →</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="icon-frame"><img src="assets/icon-512.png" alt="CharisPDF app icon"></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-tag">The idea</p>
+      <h2>Most free PDF editors edit more than you asked them to.</h2>
+      <p>Point at existing text to fix a typo and the whole line reflows. Sign a form and a watermark shows up anyway. CharisPDF adds your marks on top of the page and leaves everything else exactly as it was.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <h3>Add, don't rewrite</h3>
+        <p>Text, shapes, and signatures land on the page as objects you can still select later — move, resize, restyle, or delete them. The original content stream is never touched.</p>
+      </div>
+      <div class="feature">
+        <h3>Private by default</h3>
+        <p>No account, no upload, no analytics. A file only ever leaves your device if you choose to connect your own AI agent for something extra.</p>
+      </div>
+      <div class="feature">
+        <h3>Built for an agent, too</h3>
+        <p>App Intents and Shortcuts let your own AI agent search, count, rotate, or edit pages. CharisPDF supplies the tools — you keep the file.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-tag">What's in it</p>
+      <h2>Everything you'd expect from a mark-up editor. Nothing you wouldn't.</h2>
+    </div>
+    <div class="promise-grid">
+      <div><span class="check">✓</span>Sign — draw it, type it, or use a photo</div>
+      <div><span class="check">✓</span>Add text, shapes, and freehand marks</div>
+      <div><span class="check">✓</span>Highlight, underline, strikethrough</div>
+      <div><span class="check">✓</span>Reorder, rotate, insert, delete, extract, duplicate pages</div>
+      <div><span class="check">✓</span>Search inside a document, jump to page, print</div>
+      <div><span class="check">✓</span>Undo and redo, all the way back to the original</div>
+      <div><span class="check">✓</span>Dark mode</div>
+      <div><span class="check">✓</span>Works offline</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-tag">Why not just use another paid PDF tool?</p>
+      <h2>The difference shows up the moment you touch existing text.</h2>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <tr><th>Area</th><th>Other paid PDF tools</th><th>CharisPDF</th></tr>
+        <tr><td>Editing existing text</td><td>Often rewrites the underlying text layer</td><td class="us">We don't touch it — added marks stay separate objects</td></tr>
+        <tr><td>Cost</td><td>Subscription or per-feature paywall</td><td class="us">Free. No subscription, no paywall on editing</td></tr>
+        <tr><td>Account</td><td>Usually requires sign-in</td><td class="us">No account, ever</td></tr>
+        <tr><td>Where files go</td><td>Cloud processing common for AI features</td><td class="us">Local by default. Agent calls are opt-in, to your own endpoint</td></tr>
+        <tr><td>AI</td><td>Built-in copilot, their cloud</td><td class="us">Plug in the agent you already use — we don't sell AI</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-tag">The name</p>
+      <h2>Charis is Greek for grace.</h2>
+    </div>
+    <p class="meaning">The product promise follows from the name: put your marks on the file you have, and leave the original page content alone. Not a rewrite, not a redo — just what you added.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span class="foot-note">CharisPDF · part of CharisTools</span>
+    <div class="foot-links">
+      <a href="../">Home</a>
+      <a href="../PRIVACY.html">Privacy Statement</a>
+      <a href="../DISCLAIMER.html">Disclaimer</a>
+      <a href="https://main.d41zhi8q55vh9.amplifyapp.com/requests">Feedback</a>
+      <a href="mailto:charistools.dev@gmail.com">Support</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

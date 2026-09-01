@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chengguan.github.io/CharisTools/sitemap.xml
