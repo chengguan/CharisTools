@@ -1,6 +1,6 @@
 # CharisTools
 
-Support and legal documents for [CharisPDF]([https://apps.apple.com/](https://apps.apple.com/sg/app/charispdf/id6803359246)), a free local PDF editor for iPhone and iPad.
+Support and legal documents for [CharisPDF](https://apps.apple.com/sg/app/charispdf/id6803359246), a free local PDF editor for iPhone and iPad.
 
 ## Support
 
