@@ -34,6 +34,63 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I sign a PDF on iPhone without an account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open the PDF in CharisPDF, pick the signature tool, then draw or type your signature — no sign-in of any kind. It lands as an overlay you can select, move, or delete later. A photo signature is the one exception: PDFKit flattens it onto the page, so it isn't selectable again after you save."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I highlight or underline text in a PDF for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick the highlight, underline, or strikethrough tool and mark the existing text directly. It only marks the text — the original page content underneath is never rewritten or reflowed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does editing a PDF in CharisPDF change the original text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — that's the whole design rule. CharisPDF only ever adds new objects (text, shapes, signatures, highlights) on top of the page. It won't touch, reflow, or replace the original content stream, even to fix a typo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CharisPDF save my changes automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not yet. CharisPDF doesn't autosave — tap Save (or Save a Copy) before you switch apps or put your phone away. iOS can close a backgrounded app without warning, and unsaved edits would be lost. Autosave is a known gap, not a hidden one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is CharisPDF really free, with no in-app purchases?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. No subscription, no watermark on what you save, and no in-app purchases in this version."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CharisPDF upload my PDF anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Everything happens on-device — no analytics, no upload. Its App Store privacy label is Data Not Collected. The one exception is if you deliberately connect your own AI agent via Shortcuts/App Intents, which is optional and off by default."
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -201,6 +258,8 @@ footer{
 .foot-links a{ color:var(--muted); text-decoration:none; }
 .foot-links a:hover{ color:var(--ink); }
 .foot-note{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--muted); }
+.foot-note a{ color:var(--accent-strong); text-decoration:none; }
+.foot-note a:hover{ text-decoration:underline; }
 
 /* ---------- screenshots ---------- */
 .shot-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; align-items:start; }
@@ -246,6 +305,25 @@ footer{
   border-left:3px solid var(--grace); background:var(--grace-soft);
   border-radius:0 10px 10px 0; padding:12px 16px; max-width:62ch;
 }
+
+/* faq */
+.faq{ display:grid; gap:12px; }
+.faq-item{
+  background:var(--card); border:1px solid var(--line); border-radius:12px;
+  padding:0 22px;
+}
+.faq-item summary{
+  font-family:'Source Serif 4', serif; font-weight:600; font-size:16px;
+  padding:18px 0; cursor:pointer; list-style:none;
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{
+  content:"+"; font-family:'IBM Plex Mono', monospace; color:var(--accent);
+  font-size:19px; flex:none; line-height:1;
+}
+.faq-item[open] summary::after{ content:"–"; }
+.faq-item p{ font-size:14.5px; color:var(--muted); margin:0 0 20px; max-width:62ch; }
 </style>
 </head>
 <body>
@@ -259,6 +337,7 @@ footer{
     <div class="top-links">
       <a href="#screenshots">Screenshots</a>
       <a href="#guide">Guide</a>
+      <a href="#faq">FAQ</a>
       <a href="https://main.d41zhi8q55vh9.amplifyapp.com/requests">Feedback</a>
       <a href="../PRIVACY.html">Privacy</a>
     </div>
@@ -420,6 +499,41 @@ footer{
   </div>
 </section>
 
+<section id="faq">
+  <div class="wrap narrow">
+    <div class="section-head">
+      <p class="section-tag">Questions</p>
+      <h2>Before you install it.</h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item">
+        <summary>How do I sign a PDF on iPhone without an account?</summary>
+        <p>Open the PDF in CharisPDF, pick the signature tool, then draw or type your signature — no sign-in of any kind. It lands as an overlay you can select, move, or delete later. A photo signature is the one exception: PDFKit flattens it onto the page, so it isn't selectable again after you save.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I highlight or underline text in a PDF for free?</summary>
+        <p>Pick the highlight, underline, or strikethrough tool and mark the existing text directly. It only marks the text — the original page content underneath is never rewritten or reflowed.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does editing a PDF in CharisPDF change the original text?</summary>
+        <p>No — that's the whole design rule. CharisPDF only ever adds new objects (text, shapes, signatures, highlights) on top of the page. It won't touch, reflow, or replace the original content stream, even to fix a typo.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does CharisPDF save my changes automatically?</summary>
+        <p>Not yet. CharisPDF doesn't autosave — tap Save (or Save a Copy) before you switch apps or put your phone away. iOS can close a backgrounded app without warning, and unsaved edits would be lost. Autosave is a known gap, not a hidden one.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is CharisPDF really free, with no in-app purchases?</summary>
+        <p>Yes. No subscription, no watermark on what you save, and no in-app purchases in this version.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does CharisPDF upload my PDF anywhere?</summary>
+        <p>No. Everything happens on-device — no analytics, no upload. Its App Store privacy label is <em>Data Not Collected</em>. The one exception is if you deliberately connect your own AI agent via Shortcuts/App Intents, which is optional and off by default.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="closing">
   <div class="wrap">
     <div class="section-head">
@@ -432,11 +546,12 @@ footer{
 
 <div class="wrap">
   <footer>
-    <span class="foot-note">CharisPDF · part of CharisTools</span>
+    <span class="foot-note">CharisPDF · part of CharisTools · also see <a href="../CharisRemote/">CharisRemote</a></span>
     <div class="foot-links">
       <a href="../">Home</a>
       <a href="#screenshots">Screenshots</a>
       <a href="#guide">User Guide</a>
+      <a href="#faq">FAQ</a>
       <a href="../PRIVACY.html">Privacy Statement</a>
       <a href="../DISCLAIMER.html">Disclaimer</a>
       <a href="https://main.d41zhi8q55vh9.amplifyapp.com/requests">Feedback</a>
