@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CharisTools — small, local-first iOS apps</title>
+<meta name="description" content="CharisTools makes small, local-first iOS apps: CharisPDF (a free PDF editor) and CharisRemote (a free Android TV remote). No accounts, no cloud relays, no ads.">
+<link rel="canonical" href="https://chengguan.github.io/CharisTools/">
+<link rel="icon" type="image/png" sizes="256x256" href="CharisPDF/assets/icon-256.png">
+<link rel="apple-touch-icon" href="CharisPDF/assets/icon-256.png">
+<meta name="google-site-verification" content="zXeMUH7usuK_1RrhiAdQ3f0OXjeztKLm57VTpjHTfSg" />
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="CharisTools — small, local-first iOS apps">
+<meta property="og:description" content="Free, local-first iOS apps: CharisPDF (PDF editor) and CharisRemote (Android TV remote). No accounts, no cloud relays, no ads.">
+<meta property="og:url" content="https://chengguan.github.io/CharisTools/">
+<meta property="og:image" content="https://chengguan.github.io/CharisTools/CharisPDF/assets/icon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CharisTools — small, local-first iOS apps">
+<meta name="twitter:description" content="Free, local-first iOS apps: CharisPDF (PDF editor) and CharisRemote (Android TV remote).">
+<meta name="twitter:image" content="https://chengguan.github.io/CharisTools/CharisPDF/assets/icon-512.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CharisTools",
+  "url": "https://chengguan.github.io/CharisTools/",
+  "description": "Free, local-first iOS apps: CharisPDF (PDF editor) and CharisRemote (Android TV remote). No accounts, no cloud relays, no ads.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      { "@type": "SoftwareApplication", "position": 1, "name": "CharisPDF", "url": "https://chengguan.github.io/CharisTools/CharisPDF/" },
+      { "@type": "SoftwareApplication", "position": 2, "name": "CharisRemote", "url": "https://chengguan.github.io/CharisTools/CharisRemote/" }
+    ]
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f3f4f1;
+  --card:#ffffff;
+  --ink:#1c2333;
+  --muted:#5b6270;
+  --line:#dad9d2;
+  --accent:#2f5c8a;
+  --accent-strong:#1f4368;
+  --accent-soft:#dde6ef;
+  --grace:#4f6b4c;
+  --grace-soft:#e3ebe0;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#14161a;
+    --card:#1b1d21;
+    --ink:#e7e5dd;
+    --muted:#a3a49b;
+    --line:#2c2e2a;
+    --accent:#8db3de;
+    --accent-strong:#b4cde8;
+    --accent-soft:#233246;
+    --grace:#93b08b;
+    --grace-soft:#20291f;
+  }
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Public Sans', system-ui, -apple-system, sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{ color:var(--accent-strong); }
+.wrap{ max-width:1040px; margin:0 auto; padding:0 24px; }
+.narrow{ max-width:680px; }
+
+/* ---------- top nav ---------- */
+nav.top{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:22px 0;
+}
+.brand{ display:flex; align-items:center; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:14px; letter-spacing:0.02em; color:var(--muted); }
+.top-links{ display:flex; flex-wrap:wrap; justify-content:flex-end; gap:12px 18px; font-size:14px; }
+.top-links a{ text-decoration:none; color:var(--muted); }
+.top-links a:hover{ color:var(--ink); }
+
+/* ---------- hero ---------- */
+.hero{ padding:64px 0 40px; }
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 18px;
+}
+h1{
+  font-family:'Source Serif 4', Georgia, serif; font-weight:700;
+  font-size:clamp(34px,5vw,52px); line-height:1.08; letter-spacing:-0.01em;
+  margin:0 0 22px; text-wrap:balance; max-width:16ch;
+}
+.hero p.lede{ font-size:18px; color:var(--muted); max-width:58ch; margin:0 0 30px; }
+
+.signature{ width:260px; max-width:70%; height:auto; margin:0 0 30px; display:block; }
+.sig-path{
+  stroke:var(--accent);
+  stroke-width:3;
+  fill:none;
+  stroke-linecap:round;
+  stroke-dasharray:520;
+  stroke-dashoffset:520;
+  animation:draw 1.8s 0.3s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce){
+  .sig-path{ animation:none; stroke-dashoffset:0; }
+}
+@keyframes draw{ to{ stroke-dashoffset:0; } }
+
+.cta-row{ display:flex; flex-wrap:wrap; gap:18px; align-items:center; }
+.cta-secondary{ font-size:14.5px; text-decoration:none; color:var(--accent-strong); font-weight:600; }
+.cta-secondary:hover{ text-decoration:underline; }
+
+/* ---------- sections ---------- */
+section{ padding:56px 0; border-top:1px solid var(--line); }
+.section-head{ max-width:56ch; margin:0 0 36px; }
+.section-tag{
+  font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.07em;
+  text-transform:uppercase; color:var(--grace); margin:0 0 10px;
+}
+h2{
+  font-family:'Source Serif 4', Georgia, serif; font-weight:600;
+  font-size:clamp(24px,3vw,30px); margin:0 0 12px; text-wrap:balance;
+}
+.section-head p{ color:var(--muted); font-size:16px; margin:0; }
+
+/* app cards */
+.app-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+@media (max-width:720px){ .app-grid{ grid-template-columns:1fr; } }
+.app-card{
+  background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:28px; transition:border-color 0.15s ease;
+}
+.app-card:hover{ border-color:var(--accent); }
+.app-card-link{ display:block; text-decoration:none; color:var(--ink); }
+.app-card-top{ display:flex; align-items:center; gap:16px; margin-bottom:16px; }
+.app-icon{ width:56px; height:56px; border-radius:14px; display:block; box-shadow:0 6px 16px -8px rgba(28,35,51,0.35); }
+.app-card h3{
+  font-family:'Source Serif 4', serif; font-weight:600; font-size:20px; margin:0 0 4px;
+}
+.app-status{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.04em;
+  text-transform:uppercase; color:var(--grace);
+}
+.app-card p.tagline{ font-size:15px; color:var(--muted); margin:0 0 18px; }
+.app-card-foot{
+  display:flex; justify-content:space-between; align-items:center;
+  border-top:1px solid var(--line); padding-top:14px; font-size:13px;
+}
+.app-card-foot .legal{ color:var(--muted); }
+.app-card-foot .legal a{ color:var(--muted); text-decoration:none; }
+.app-card-foot .legal a:hover{ color:var(--ink); text-decoration:underline; }
+.app-card-foot .go{ color:var(--accent-strong); font-weight:600; text-decoration:none; }
+.app-card-foot .go:hover{ text-decoration:underline; }
+
+/* promise list */
+.promise-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px 32px; }
+@media (max-width:600px){ .promise-grid{ grid-template-columns:1fr; } }
+.promise-grid div{
+  display:flex; gap:10px; align-items:flex-start; font-size:15px; padding:9px 0;
+  border-bottom:1px solid var(--line);
+}
+.check{ color:var(--grace); flex:none; font-weight:700; margin-top:1px; }
+
+/* closing */
+.closing{ text-align:left; }
+.closing .meaning{
+  border-left:3px solid var(--grace); background:var(--grace-soft);
+  border-radius:0 10px 10px 0; padding:18px 22px; font-size:15px; max-width:56ch; margin-top:8px;
+}
+
+footer{
+  border-top:1px solid var(--line); padding:36px 0 56px;
+  display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:center;
+}
+.foot-links{ display:flex; gap:20px; flex-wrap:wrap; font-size:13.5px; }
+.foot-links a{ color:var(--muted); text-decoration:none; }
+.foot-links a:hover{ color:var(--ink); }
+.foot-note{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="top">
+    <span class="brand">CharisTools</span>
+    <div class="top-links">
+      <a href="mailto:charistools.dev@gmail.com">Support</a>
+    </div>
+  </nav>
+</div>
+
+<div class="wrap hero">
+  <p class="eyebrow">Charis — Greek for grace</p>
+  <h1>Nothing leaves your device unless you say so.</h1>
+  <svg class="signature" viewBox="0 0 260 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path class="sig-path" d="M8,50 C22,20 34,20 40,42 C45,58 52,44 58,32 C64,20 70,44 78,44 C88,44 92,26 102,26 C114,26 116,54 128,54 C144,54 146,16 160,16 C176,16 176,50 192,50 C204,50 206,30 216,30 C224,30 228,42 236,42 C244,42 246,32 252,26"/>
+  </svg>
+  <p class="lede">CharisTools is a small set of free, local-first iOS apps — a PDF editor and a TV remote so far. No accounts, no cloud relays, no ads. Just tools that do the one thing they promise, on the device you already have.</p>
+  <div class="cta-row">
+    <a class="cta-secondary" href="#apps">See the apps ↓</a>
+  </div>
+</div>
+
+<section id="apps">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-tag">The apps</p>
+      <h2>Two, so far.</h2>
+    </div>
+    <div class="app-grid">
+      <div class="app-card">
+        <a class="app-card-link" href="CharisPDF/">
+          <div class="app-card-top">
+            <img class="app-icon" src="CharisPDF/assets/icon-256.png" alt="CharisPDF app icon">
+            <div>
+              <h3>CharisPDF</h3>
+              <p class="app-status">Free · live on the App Store</p>
+            </div>
+          </div>
+          <p class="tagline">A PDF editor that leaves your PDF alone. Sign, mark up, and organize PDFs — nothing you didn't add is ever rewritten.</p>
+        </a>
+        <div class="app-card-foot">
+          <span class="legal"><a href="PRIVACY.html">Privacy</a> · <a href="DISCLAIMER.html">Disclaimer</a></span>
+          <a class="go" href="CharisPDF/">See more →</a>
+        </div>
+      </div>
+      <div class="app-card">
+        <a class="app-card-link" href="CharisRemote/">
+          <div class="app-card-top">
+            <img class="app-icon" src="CharisRemote/assets/icon-256.png" alt="CharisRemote app icon">
+            <div>
+              <h3>CharisRemote</h3>
+              <p class="app-status">Free core · coming soon</p>
+            </div>
+          </div>
+          <p class="tagline">A TV remote that never leaves your Wi-Fi. Pairs directly with your Android TV / Google TV — no cloud relay, no account.</p>
+        </a>
+        <div class="app-card-foot">
+          <span class="legal"><a href="CharisRemote/PRIVACY.html">Privacy</a> · <a href="CharisRemote/TERMS.html">Terms</a></span>
+          <a class="go" href="CharisRemote/">See more →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-tag">The approach</p>
+      <h2>The same rule, applied twice.</h2>
+    </div>
+    <div class="promise-grid">
+      <div><span class="check">✓</span>No accounts, ever</div>
+      <div><span class="check">✓</span>No cloud relay — devices talk directly, or nothing leaves the phone at all</div>
+      <div><span class="check">✓</span>No ads, no analytics</div>
+      <div><span class="check">✓</span>Free or free-core — no subscription grind</div>
+      <div><span class="check">✓</span>Local-first — nothing uploaded unless you choose to</div>
+      <div><span class="check">✓</span>Built and maintained by one person</div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="section-tag">The name</p>
+      <h2>Charis is Greek for grace.</h2>
+    </div>
+    <p class="meaning">Grace shows up here as restraint: each app does the one thing it promises, asks for nothing extra, and leaves you in control of your own data.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span class="foot-note">CharisTools</span>
+    <div class="foot-links">
+      <a href="CharisPDF/">CharisPDF</a>
+      <a href="CharisRemote/">CharisRemote</a>
+      <a href="mailto:charistools.dev@gmail.com">Support</a>
+      <a href="https://github.com/chengguan/CharisTools/issues">Issues</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
